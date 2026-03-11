@@ -1,60 +1,185 @@
-# AI-Powered Synthetic Data Generator
+# 🧬 Synthetic Data Generator — AI-Assisted Schema & Data Creation
 
-An intelligent, Streamlit-based web application that leverages Google's Gemini 2.5 Flash model to instantly translate business use cases into normalized relational database schemas. It automatically infers the correct tables, columns, primary keys, and foreign keys while enforcing referential integrity. In addition, it generates a complete, ready-to-use Python script (utilizing the `Faker` library) that you can run to populate your new schema with realistic synthetic data in CSV format.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red)
+![Gemini](https://img.shields.io/badge/LLM-Gemini%202.5%20Flash-purple)
+![Faker](https://img.shields.io/badge/Data-Faker-green)
+![CSV](https://img.shields.io/badge/Output-CSV-orange)
 
-## Features
+> A generative AI system that converts natural language business requirements into **normalized relational database schemas** and automatically produces a **Python-based synthetic data generator**.
 
-- **Natural Language to Schema:** Describe your business requirement (e.g., "E-commerce system with users, products, and orders") and the AI will design a complete database schema for you.
-- **Referential Integrity:** Ensures correct relationships, Primary Keys (PK), and Foreign Keys (FK) across inferred tables.
-- **Synthetic Data Script Generation:** Automatically creates a Python script that uses `Faker` to generate synthetic data based on the inferred schema.
-- **Topological Sorting:** Orders data generation intelligently to prevent foreign key constraint violations.
-- **One-Click Download:** Provides a downloadable, ready-to-run Python (`generate_data.py`) script right from the app interface.
-- **Sleek, Premium UI:** Enjoy an intuitive, dark-themed user interface designed for a seamless user experience.
+The application uses **Google Gemini 2.5 Flash** to infer entities, relationships, and constraints, and generates a ready-to-run **Faker-powered Python script** to populate the schema with realistic synthetic datasets.
 
-## Requirements
+---
 
-The application requires Python 3.8+ and relies on the following packages:
-- `streamlit`
-- `pandas`
-- `google-generativeai`
-- `faker`
-- `python-dotenv`
+# 📂 Project Overview
 
-## Installation
+This project implements a **natural language → database schema → synthetic data pipeline**.
 
-1. Clone or download this repository.
-2. Navigate to the `code` directory.
-3. Install the required dependencies using pip:
+Users can describe a business scenario in plain language, and the system will automatically:
+
+1. Infer database entities and relationships  
+2. Construct a normalized relational schema  
+3. Enforce primary and foreign key constraints  
+4. Generate a Python script that produces synthetic CSV datasets  
+
+The result is a **fully functional dataset generator** suitable for:
+
+- Machine learning experimentation
+- database prototyping
+- analytics testing
+- application development
+
+---
+
+# ⚙️ System Workflow
+
+The system follows a structured generation pipeline.
+
+### 1. 🧠 Schema Inference
+The user provides a **natural language description** of a system.
+
+Example:
+
+> “E-commerce platform with users, products, orders, and payments.”
+
+The LLM analyzes the prompt and infers:
+
+- entities
+- attributes
+- relationships
+- keys and constraints
+
+---
+
+### 2. 🗄️ Relational Schema Construction
+
+The application converts the inferred structure into **normalized database tables** including:
+
+| Component | Description |
+|---|---|
+| Tables | Entities extracted from the use case |
+| Columns | Attributes of each entity |
+| Primary Keys | Unique identifiers |
+| Foreign Keys | Relationships across tables |
+
+Referential integrity is preserved across all generated tables.
+
+---
+
+### 3. 🧪 Synthetic Data Script Generation
+
+After the schema is created, the system generates a **Python script** that uses the `Faker` library to produce realistic synthetic data.
+
+Key features include:
+
+- realistic names, addresses, timestamps
+- customizable dataset sizes
+- schema-aware column generation
+
+---
+
+### 4. 🔗 Dependency Ordering (Topological Sorting)
+
+To ensure foreign key constraints are respected, the system applies **topological sorting** to determine the correct order of table generation.
+
+For example:
+Users → Orders → Order_Items
+
+This prevents invalid references during dataset creation.
+
+---
+
+# 🌟 Core Features
+
+| Feature | Description |
+|---|---|
+| Natural Language Schema Design | Convert business descriptions into relational schemas |
+| Referential Integrity | Automatic PK/FK relationship enforcement |
+| Synthetic Data Generation | Python script generation using Faker |
+| Dependency Resolution | Topological ordering of table generation |
+| Interactive UI | Streamlit-based interface |
+| One-Click Export | Download ready-to-run data generation script |
+
+---
+
+# 🧰 Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Interface | Streamlit |
+| Language Model | Gemini 2.5 Flash |
+| Data Generation | Faker |
+| Data Handling | Pandas |
+| Environment Management | python-dotenv |
+| Language | Python |
+
+---
+
+# 🗂️ Project Structure
+synthetic-data-generator/
+
+├── app.py # Streamlit interface
+├── generator_logic.py # LLM schema inference + script generation
+├── requirements.txt # Python dependencies
+
+
+---
+
+# 🚀 Getting Started
+
+### Prerequisites
+
+Ensure the following are installed:
+
+- Python **3.8+**
+- Google **Gemini API Key**
+
+Get one from:
+
+https://aistudio.google.com/
+
+---
+
+### Installation
+
+Clone the repository and install dependencies:
 
 ```bash
 cd code
 pip install -r requirements.txt
 ```
+▶️ Running the Application
 
-## Usage
+Start the Streamlit interface:
 
-1. **Get an API Key:** Obtain a Gemini API key from [Google AI Studio](https://aistudio.google.com/).
-2. **Run the Application:** Start the Streamlit app by running the following command from the `code` directory:
-
-```bash
 streamlit run app.py
-```
+📌 Usage
 
-3. **Provide Your Key:** Enter your Gemini API key in the app's sidebar. *(Note: Your API key is used only for the current session and is never stored.)*
-4. **Generate Your Schema:** Describe your business usecase in the prompt area. The AI will output an ER schema as a set of logical tables.
-5. **Download Script:** Review the schema, then download the generated `generate_data.py` script.
-6. **Generate Data:** Run the generated script locally to produce realistic CSVs for each table.
+Enter your Gemini API Key in the sidebar
 
-```bash
+Describe your business use case
+
+# Example:
+- Marketplace platform with buyers, sellers, products, and orders
+- The system generates a relational schema
+- Download the generated script:
+- generate_data.py
+- Run the script to generate CSV datasets:
+
 python generate_data.py
-```
+# 📊 Example Output
 
-## Structure
+Generated datasets may include tables such as:
 
-- `app.py`: The main Streamlit web application frontend and chat interface.
-- `generator_logic.py`: Contains `DataGeneratorLogic` class responsible for communicating with the Gemini API to infer schemas and write the Python Faker script.
-- `requirements.txt`: Defines Python dependencies for this project.
+1. users.csv
+2. orders.csv
+3. products.csv
+4. payments.csv
 
-## Author
+All tables maintain valid relational dependencies.
 
-Built By Jayan Gupta
+# 👨‍💻 Author
+
+Jayan Gupta
+Data Scientist | Machine Learning | AI Systems
