@@ -42,3 +42,7 @@ This document tracks engineering milestones, experiment logs, parameter optimiza
 - **Focus**: refactor: optimize Faker provider pipeline for synthetic distributions
 - **Technical Summary**: Configured realistic Indian and Global demographic distribution generators.
 
+### Milestone Log - 2026-03-26 (14:52)
+- **Focus**: docs: update relational schema foreign key constraint validator
+- **Technical Summary**: Enforced referential integrity between generated parent-child dataframes.
+
