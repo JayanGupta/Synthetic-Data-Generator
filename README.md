@@ -7,7 +7,6 @@
 [![Google Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-8E75B2?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com)
 [![Faker](https://img.shields.io/badge/Faker-Data%20Generation-2ea44f?style=for-the-badge)](https://faker.readthedocs.io)
 [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org)
-[![Status](https://img.shields.io/badge/Status-Complete-2ea44f?style=for-the-badge)]()
 
 *A generative AI system that converts natural language business requirements into normalized relational database schemas and automatically produces a Python-based synthetic data generator.*
 
