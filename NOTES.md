@@ -70,3 +70,7 @@ This document tracks engineering milestones, experiment logs, parameter optimiza
 - **Focus**: docs: update relational schema foreign key constraint validator
 - **Technical Summary**: Enforced referential integrity between generated parent-child dataframes.
 
+### Milestone Log - 2026-04-23 (10:37)
+- **Focus**: refactor: optimize Faker provider pipeline for synthetic distributions
+- **Technical Summary**: Configured realistic Indian and Global demographic distribution generators.
+
