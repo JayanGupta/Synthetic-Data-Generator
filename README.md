@@ -18,22 +18,6 @@ A Streamlit application powered by Google Gemini 2.5 Flash that takes a plain-la
 
 ---
 
-## Table of Contents
-
-- [Background](#background)
-- [System Workflow](#system-workflow)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Example Output](#example-output)
-- [Future Work](#future-work)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
 ## Background
 
 Synthetic data is a critical resource in machine learning, database prototyping, and application testing — yet generating it at scale, with realistic values and valid relational dependencies, typically requires significant manual effort. This project eliminates that friction by automating the full pipeline through a large language model.
