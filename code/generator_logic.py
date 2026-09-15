@@ -7,7 +7,7 @@ from typing import Dict, List, Any
 class DataGeneratorLogic:
     def __init__(self, api_key: str):
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-2.5-flash')
+        self.model = genai.GenerativeModel('gemini-3.6-flash')
 
     def _get_json_from_response(self, text: str) -> Any:
         try:
